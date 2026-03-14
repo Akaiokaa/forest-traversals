@@ -59,8 +59,22 @@ public class TreeProblems {
    9
    8
    5
+
+        5
+      / | \
+     3  9  8
+       / | \
+      4  1  2
    */
   public static <T> void postOrder(Map<T, List<T>> tree, T root) {
+    if (!tree.containsKey(root)) {
+      return;
+    }
+    List<T> children = tree.get(root);
+    for(T child: children){
+      postOrder(tree, child);
+    }
+    System.out.println(root);
   }
 
   /*
